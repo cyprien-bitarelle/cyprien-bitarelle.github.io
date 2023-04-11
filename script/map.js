@@ -9,7 +9,7 @@ L.tileLayer(
     tileSize: 512,
     zoomOffset: -1,
     //Token leaflet
-    accessToken: tokenLeaflet,
+    accessToken: vars.LEAFLET,
   }
 ).addTo(mymap);
 
