@@ -259,45 +259,7 @@
                     <textarea rows="10" placeholder="Votre message" name="message" id="message" required></textarea>
                     <input id="form_button" type="submit" value="Envoyer">
                 </form>
-                <?php
 
-                use PHPMailer\PHPMailer\PHPMailer;
-                use PHPMailer\PHPMailer\SMTP;
-
-                require './vendor/autoload.php';
-
-                if (isset($_POST['message']) && isset($_POST['email']) && isset($_POST['nom']) && isset($_POST['prenom'])) {
-
-                    $mail = new PHPMailer();
-                    //Tell PHPMailer to use SMTP
-                    $mail->isSMTP();
-                    //Set the hostname of the mail server
-                    $mail->Host = 'smtp.gmail.com';
-                    //Set the SMTP port number:
-                    $mail->Port = 465;
-                    $mail->SMTPSecure = "ssl";
-                    //Whether to use SMTP authentication
-                    $mail->SMTPAuth = true;
-                    //Username to use for SMTP authentication - use full email address for gmail
-                    $mail->Username = '';
-                    //Password to use for SMTP authentication
-                    $mail->Password = '';
-                    $mail->isHTML(true);
-                    $mail->addAddress('bitarelle.cyprien@gmail.com');
-                    $mail->setFrom("cyprien.bitarelle@gmail.com", $_POST['nom'] . " " . $_POST['prenom']);
-                    $mail->addReplyTo($_POST["email"], $_POST['nom'] . " " . $_POST['prenom']);
-                    //Set the subject line
-                    $mail->Subject = 'Mail recu depuis le formulaire du portfolio.';
-                    $mail->Body = $_POST['message'] . "<br>" . $_POST['email'];
-                    //send the message, check for errors
-                    if ($mail->send()) {
-                        echo '<p>Message envoyé ! Merci.</p>';
-                    } else {
-                        echo '<p>Erreur : ' . $mail->ErrorInfo . "</p>";
-                    }
-                }
-
-                ?>
             </div>
             <div id="localisation">
                 <button id="localisation_button" class="green_button"><i class="fa-regular fa-map"></i> Voir
