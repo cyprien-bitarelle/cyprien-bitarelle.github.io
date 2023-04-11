@@ -1,6 +1,7 @@
 //On ajoute la map sur le DOM avec les paramètres voulus.
 let mymap = L.map("mapid").setView([43.67734964920557, 4.631217420101167], 13);
-let tokenLeaflet = secrets.LEAFLET;
+let tokenLeaflet =
+  "pk.eyJ1IjoiYmliaXJ6IiwiYSI6ImNrdDRkZ3Y5NDEzMXcycHMybzhvaGp6czQifQ.I3whrNWN0xxkQ5VRej0W-A";
 L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
   {
